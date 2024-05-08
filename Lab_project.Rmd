@@ -23,11 +23,9 @@ library(ggrepel)
 ```
 
 
-##Exercises
+##Tasks
 
-`1.
-
-(4 points)
+`1. (4 points)
 ```{r}
 
 ```
@@ -35,9 +33,8 @@ Write your narrative here
 
 
 
-`2.
 
-(4 points)
+`2. (4 points)
 
 ```{r}
 
@@ -45,10 +42,9 @@ Write your narrative here
 Write your narrative below
 
 
-`3. Copy the code provided in the homework documentation and paste it here. 
 
-(4 points)
 
+`3. (4 points)
 ```{r}
 
 ```
@@ -56,22 +52,72 @@ Write your narrative here
 
 
 
-`4.
 
-(10 points)
 
-```{r species-name-top5, eval=TRUE}
+`4. (4 points)
+
+```{r}
 
 ```
+Write your narrative here
 
-`5.  What names are more common for cats than dogs? The ones above the line or the ones below the line?
 
-Answer here
+`5.  (4 points)
+```{r eval = TRUE, echo = FALSE, fig.fullwidth = TRUE}
+# data prep
+name_props <- seattlepets %>% 
+  filter(
+    !is.na(animal_name),
+    species %in% c("Dog", "Cat")
+    ) %>%
+  group_by(species) %>% 
+  count(animal_name, sort = TRUE) %>%
+  mutate(prop = n / sum(n))
+    
+cat_name_props <- name_props %>%
+  filter(species == "Cat") %>%
+  rename(cat_prop = prop) %>%
+  slice(1:30)
 
-(4 points)
+dog_name_props <- name_props %>%
+  filter(species == "Dog") %>%
+  rename(dog_prop = prop) %>%
+  slice(1:30)
+    
+comb_name_props <- inner_join(cat_name_props, dog_name_props, 
+                              by = "animal_name") %>%
+  ungroup() %>%
+  select(animal_name, cat_prop, dog_prop)
+    
+# create viz
+ggplot(comb_name_props, aes(x = cat_prop, y = dog_prop)) +
+  geom_abline(intercept = 0, 
+              color = COL["lgray","full"], 
+              alpha = 0.8, 
+              size = 1.5) +
+  geom_text_repel(aes(label = animal_name), 
+                  segment.color = COL["gray","full"], 
+                  seed = 291252, max.iter = 10000) +
+  geom_point(color = COL["blue","full"], alpha = 0.8) +
+  theme_minimal() +
+  labs(x = "Proportion of cats", y = "Proportion of dogs") +
+  xlim(0.002, 0.01) +
+  ylim(0.002, 0.01) +
+  ggimage::geom_emoji(
+      image = "1f436", aes(x = 0.003, y = 0.009), size = 0.1
+      ) +
+  ggimage::geom_emoji(
+      image = "1f431", aes(x = 0.009, y = 0.003), size = 0.1
+      )
+```
 
-`6. Is the relationship between the two variables (proportion of cats with a given name and proportion of dogs with a given name) positive or negative? What does this mean in context of the data?
+`What names are more common for cats than dogs? The ones above the line or the ones below the line?
 
-Answer here
+`Answer here..................
 
-(4 points)
+
+
+`Is the relationship between the two variables (proportion of cats with a given name and proportion of dogs with a given name) positive or negative? What does this mean in context of the data?
+
+`Answer here .............
+
