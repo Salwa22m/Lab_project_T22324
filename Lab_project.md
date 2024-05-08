@@ -1,14 +1,12 @@
-Homework \#1 – Pet Names Dataset
+DSC 200 Lab Project -Term 2232
 ================
-Musab Isah
+2024-05-08
 
-2021-02-05
+**Student Name:<insert your name here>** **Student ID:<insert ID here>**
 
-**Student ID:insert ID here**
+**Deadline:** 23:59 on Sunday, 19 May 2024
 
-**Deadline:** 23:59 on Saturday, 13 February 2021
-
-**Total Points:** 30
+**Total Points:** 20
 
 ## Loading Packages
 
@@ -18,7 +16,7 @@ library(openintro)
 library(ggrepel)
 ```
 
-\#\#Exercises
+\##Exercises
 
 \`1.
 

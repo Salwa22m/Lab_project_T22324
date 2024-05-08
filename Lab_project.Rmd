@@ -1,15 +1,16 @@
 ---
-title: "Homework #1 -- Pet Names Dataset"
-author: "Musab Isah\n"
+title: "DSC 200 Lab Project -Term 2232"
 date: "`r Sys.Date()`"
 output: github_document
 ---
 
-**Student ID:insert ID here**
+**Student Name:<insert your name here>**
+**Student ID:<insert ID here>**
 
-**Deadline:** 23:59 on Saturday, 13 February 2021
 
-**Total Points:** 30
+**Deadline:** 23:59 on Sunday, 19 May 2024
+
+**Total Points:** 20
 
 
 ## Loading Packages
