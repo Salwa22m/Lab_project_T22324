@@ -95,17 +95,17 @@ Write your narrative here
 
 
 `9. (2 points)
-
-The code below selects the records of the ten most common pet names and assigns them to the variable top_10_names. (Refer to Task4 above).
 ```{r}
 top_10_names <- seattlepets %>% 
 filter(animal_name %in% c( "Lucy"  , "Charlie" , "Luna" , "Bella" , "Max"    , 
                            "Daisy" , "Molly"   , "Jack" , "Lily"  , "Stella" ))
 top_10_names
 ```
+`a.	What does the above code chunk do?
 
-`Plot the counts of the pet names (animal_name) in top_10_names
 
+
+`b. Plot the counts of the pet names (animal_name) in top_10_names
 ```{r}
 
 ```
