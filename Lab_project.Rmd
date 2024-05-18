@@ -4,9 +4,9 @@ date: "`r Sys.Date()`"
 output: github_document
 ---
 
-**Student Name:<insert your name here>**
+**Student Name:salwa alshmry**
 
-**Student ID:<insert ID here>**
+**Student ID:<2221001664**
 
 
 **Deadline:** 23:59 on Sunday, 19 May 2024
