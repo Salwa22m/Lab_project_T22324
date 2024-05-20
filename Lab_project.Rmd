@@ -40,7 +40,6 @@ Write your narrative here
 `2. (2 points)
 
 ```{r}
-Count the number of variables
 num_variables <- ncol(seattlepets)
 num_variables
 ```
@@ -52,20 +51,37 @@ Write your narrative below
 
 `3. (2 points)
 ```{r}
-
+species_count <- table(seattlepets$species)
+species_count
 ```
 Write your narrative here
 
 
 `4. (2 points)
 ```{r}
+# Count the frequency of each pet name
+pet_name_frequency <- table(seattlepets$animal_name)
 
+# Sort the frequency table in descending order
+sorted_pet_names <- sort(pet_name_frequency, decreasing = TRUE)
+
+# Display the top ten most common  names
+head(sorted_pet_names, 10)
 ```
 Write your narrative here
 
 
 `5. (2 points)
 ```{r}
+# Filter records for species Pig
+pig_records <- filter(seattlepets, species == "Pig")
+
+# Arrange the filtered records by pet names (animal_name)
+sorted_pig_records <- arrange(pig_records, animal_name)
+
+# Display the sorted pig records
+sorted_pig_records
+```
 
 ```
 Write your narrative here
@@ -75,7 +91,12 @@ Write your narrative here
 
 `6. (2 points)
 ```{r}
+# Select only pet name (animal_name) and primary breed for species Goat goat_records <- select(filter(seattlepets, species == "Goat"), animal_name, primary_breed)
 
+# Arrange the selected records by pet names (animal_name)sorted_goat_records <- arrange(goat_records, animal_name)
+
+# Display the sorted goat records
+sorted_goat_records
 ```
 Write your narrative here
 
@@ -85,7 +106,13 @@ Write your narrative here
 
 `7. (2 points)
 ```{r}
-
+# Concatenate animal_name and species into a single column named pet
+seattlepets <- mutate(seattlepets, pet = paste(animal_name, species, sep = " - "))
+# Select license_number and pet, then arrange by pet
+sorted_records <- select(seattlepets, license_number, pet) %>%
+                  arrange(pet)
+# Display the sorted records
+sorted_records
 ```
 Write your narrative here
 
