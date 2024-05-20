@@ -28,7 +28,9 @@ library(ggrepel)
 
 `1. (2 points)
 ```{r}
-
+# Count the number of pets
+num_pets <- nrow(seattlepets)
+num_pets
 ```
 Write your narrative here
 
