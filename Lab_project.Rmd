@@ -40,8 +40,12 @@ Write your narrative here
 `2. (2 points)
 
 ```{r}
-
+Count the number of variables
+num_variables <- ncol(seattlepets)
+num_variables
 ```
+
+
 Write your narrative below
 
 
